@@ -1,0 +1,36 @@
+
+Eventbridge notification:
+
+1. A_BC = A_BC --> Drop in A, move to B, Move to C
+2. A_C  = A_C --> Drop in A, move to B, Move to C
+3. B_C  = B_C --> Drop in B, Copy to C
+4. C_A  = C_BA --> Drop in C, move to B, Move to A
+  
+  
+eb-bca-cnxcp-uatezcomm-sftp-
+eb-bca-cnxcp-uatezcomm-app-
+
+
+Buckets:
+1.sasi-source-internet(a) - a1-s3-bucket-jn
+2.sasi-safe-internet(b) - a2-s3-bucket-jn
+
+3.sasi-safe-internet(f) - a3-s3-bucket-failure
+
+4.sasi-scan-mgnt(s) - a2-s3-bucket-scan
+
+5.sasi-safe-intranet(c) - a3-s3-bucket-success
+6.sasi-source-intranet(d)
+
+
+
+Scenario_1_presigned:
+
+Incoming files
+sasi-safe-internet(b) to sasi-safe-intranet(c)
+
+Outgoing files
+sasi-safe-intranet(c) to sasi-safe-internet(b)
+
+
+ A-->B-->Scan--> sucess
